@@ -100,7 +100,7 @@ impl<A: Alphabet> Dfa<A> {
         self.finals.contains(&state)
     }
 
-    pub fn write_to(&self, output: &mut Write) -> io::Result<()> 
+    pub fn write_to(&self, output: &mut dyn Write) -> io::Result<()> 
         where for<'a> &'a A: Display
     {
         let mut writer = GraphWriter::new(output, Family::Directed, None)?;
